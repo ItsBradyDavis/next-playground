@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import imageUrl from '/public/images/profile.png';
 
 import utilStyles from '../styles/utils.module.css';
 
@@ -44,7 +45,7 @@ const Layout = ({children, home}) => (
                         className={utilStyles.borderCircle}
                         height={144}
                         priority
-                        src="/images/profile.png"
+                        src={imageUrl}
                         width={144}
                     />
                     <h1 className={utilStyles.heading2Xl}>{name}</h1>
@@ -58,7 +59,7 @@ const Layout = ({children, home}) => (
                                 className={utilStyles.borderCircle}
                                 height={108}
                                 priority
-                                src="/images/profile.jpg"
+                                src={imageUrl}
                                 width={108}
                             />
                         </a>
