@@ -12,7 +12,7 @@ const getStaticProps = async () =>{
             allPostsData
         }
     }
-}
+};
 
 const Home = ({allPostsData}) => {
     return (
@@ -20,7 +20,7 @@ const Home = ({allPostsData}) => {
             <Head>
                 <title>{siteTitle}</title>
             </Head>
-            <section className={utilStyles.headingMd}>
+            <section data-testid="intro-section" className={utilStyles.headingMd}>
                 <p>Hello! My name is Brady Davis. I've been professionally developing software since 2014, and I am currently a full stack developing consultant at Source Allies. Feel free to contact me on <a href={'https://www.linkedin.com/in/brady-davis-14080589/'}>LinkedIn.</a> My areas of expertise include:</p>
                 <ul>
                     <li>Frontend & Backend development using NodeJs stack, including Next, React, React Native, and GraphQl</li>
