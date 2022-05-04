@@ -18,13 +18,11 @@ describe('index', () => {
     let allPostsData;
 
     beforeEach(() => {
-        console.log('in be');
         allPostsData = chance.n(() => ({
             date: chance.date(),
             id: chance.natural(),
             title: chance.string()
         }), chance.d6());
-        console.log('allPostsData', allPostsData);
 
         getSortedPostsData.mockReturnValue(allPostsData);
     });
