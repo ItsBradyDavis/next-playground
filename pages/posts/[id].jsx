@@ -17,8 +17,8 @@ const getStaticProps = async ({ params }) => {
 const getStaticPaths = async () => {
     const paths = getAllPostIds();
     return {
-        paths,
-        fallback: false
+        fallback: false,
+        paths
     }
 };
 
@@ -37,7 +37,7 @@ const Post = ({postData}) => {
             </article>
         </Layout>
     )
-}
+};
 
 export {getStaticPaths, getStaticProps};
 

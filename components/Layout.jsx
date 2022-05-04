@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import imageUrl from '/public/images/profile.png';
 
 import utilStyles from '../styles/utils.module.css';
 
@@ -10,6 +9,8 @@ import styles from './layout.module.css';
 const name = 'Brady Davis';
 
 const siteTitle = 'Personal Webpage for Brady Davis';
+
+const imageUrl = '/images/profile.png';
 
 const Layout = ({children, home}) => (
     <div className={styles.container}>
