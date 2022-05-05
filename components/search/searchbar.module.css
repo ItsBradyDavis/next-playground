@@ -1,0 +1,20 @@
+.searchBar {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.searchInput {
+    flex-grow: 1;
+    height: 32px;
+}
+
+.visuallyHidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
