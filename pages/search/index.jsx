@@ -1,15 +1,14 @@
 import {useEffect, useState} from 'react';
 import Head from 'next/head';
+import fetch from 'cross-fetch';
 
-import Layout, {siteTitle} from '../../components/Layout';
-import SearchBar from '../../components/search/SearchBar';
+import Layout, {siteTitle} from '../../client/components/Layout';
+import SearchBar from '../../client/components/search/search-bar';
 import {useRouter} from 'next/router';
+import {useSearch, SearchProvider} from '../../client/hooks/search-provider';
 
-const SearchHome = () => {
-    const [search, setSearch] = useState('');
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(false);
-
+const SearchContainer = () => {
+    const {loading, setSearch, setLoading, setData} = useSearch();
     const router = useRouter();
 
     useEffect(async () => {
@@ -27,22 +26,27 @@ const SearchHome = () => {
                 setData(data);
                 setLoading(false);
             }
-            
+
         }
     }, [router, setSearch]);
 
     return (
-        <Layout>
-            <Head>
-                siteTitle
-            </Head>
-            <SearchBar
-                search={search}
-                setSearch={setSearch}
-            />
-        </Layout>
+        <>
+            <SearchBar />
+        </>
     )
 };
 
+const SearchHome = () => (
+    <Layout>
+        <Head>
+            siteTitle
+        </Head>
+        <SearchProvider>
+            <SearchContainer/>
+        </SearchProvider>
+    </Layout>
+);
 
-export default SearchHome
+
+export default SearchHome;

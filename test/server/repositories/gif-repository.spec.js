@@ -1,7 +1,7 @@
 import Chance from 'chance';
 import fetch from 'cross-fetch';
 
-import {getGifsForSearchQuery} from '../../repositories/gif-repository';
+import {getGifsForSearchQuery} from '../../../server/repositories/gif-repository';
 
 jest.mock('cross-fetch');
 

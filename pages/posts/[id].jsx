@@ -1,8 +1,8 @@
 import Head from 'next/head';
 
-import Layout from '../../components/layout';
+import Layout from '../../client/components/layout';
 import { getAllPostIds, getPostData} from '../../lib/posts'
-import Date from '../../components/date';
+import Date from '../../client/components/date';
 import utilStyles from '../../styles/utils.module.css';
 
 const getStaticProps = async ({ params }) => {

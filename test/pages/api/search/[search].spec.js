@@ -1,6 +1,6 @@
 import Chance from 'chance';
 
-import {getGifsForSearchQuery} from '../../../../repositories/gif-repository';
+import {getGifsForSearchQuery} from '../../../../server/repositories/gif-repository';
 import handler from '../../../../pages/api/search/[search]';
 
 jest.mock('../../../../repositories/gif-repository');

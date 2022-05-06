@@ -1,9 +1,8 @@
-import {useState, useEffect} from 'react';
 import styles from './searchbar.module.css';
+import {useSearch} from '../../hooks/search-provider';
 
-import {useRouter} from 'next/router';
-
-const SearchBar = ({search, setSearch}) => {
+const SearchBar = () => {
+    const {search, setSearch} = useSearch();
 
     return (
         <form className={styles.searchBar}>
@@ -11,6 +10,7 @@ const SearchBar = ({search, setSearch}) => {
                 <span className={styles.visuallyHidden}>Search gifs on Giphy</span>
             </label>
             <input
+                data-testId={'search-input'}
                 value={search}
                 onInput={(event) => setSearch(event.target.value)}
                 className={styles.searchInput}

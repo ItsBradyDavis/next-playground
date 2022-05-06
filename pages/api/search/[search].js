@@ -1,4 +1,4 @@
-import {getGifsForSearchQuery} from '../../../repositories/gif-repository';
+import {getGifsForSearchQuery} from '../../../server/repositories/gif-repository';
 
 const handler = async (req, res) => {
     const {
