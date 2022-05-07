@@ -1,6 +1,5 @@
-import {useEffect, useState} from 'react';
+import {useEffect, } from 'react';
 import Head from 'next/head';
-import fetch from 'cross-fetch';
 
 import Layout, {siteTitle} from '../../client/components/Layout';
 import SearchBar from '../../client/components/search/search-bar';
@@ -8,27 +7,19 @@ import {useRouter} from 'next/router';
 import {useSearch, SearchProvider} from '../../client/hooks/search-provider';
 
 const SearchContainer = () => {
-    const {loading, setSearch, setLoading, setData} = useSearch();
+    const {loading, search, setSearch, fetchGifResults} = useSearch();
     const router = useRouter();
 
     useEffect(async () => {
-        if (router.query.searchTerm) {
+        if (router.query.searchTerm && router.query.searchTerm !== search) {
             setSearch(router.query.searchTerm);
 
             if(!loading) {
-                setLoading(true);
-                const response = await fetch(`api/search/${router.query.searchTerm}`);
-                console.log('response', response);
-
-                const data = await response.json();
-                console.log('data', data);
-
-                setData(data);
-                setLoading(false);
+                await fetchGifResults(router.query.searchTerm)
             }
 
         }
-    }, [router, setSearch]);
+    }, [router, search, fetchGifResults]);
 
     return (
         <>
@@ -40,7 +31,7 @@ const SearchContainer = () => {
 const SearchHome = () => (
     <Layout>
         <Head>
-            siteTitle
+            {siteTitle}
         </Head>
         <SearchProvider>
             <SearchContainer/>

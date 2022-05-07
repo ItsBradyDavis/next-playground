@@ -10,7 +10,7 @@ const SearchBar = () => {
                 <span className={styles.visuallyHidden}>Search gifs on Giphy</span>
             </label>
             <input
-                data-testId={'search-input'}
+                data-testid={'search-input'}
                 value={search}
                 onInput={(event) => setSearch(event.target.value)}
                 className={styles.searchInput}
