@@ -7,7 +7,7 @@ import {getAllPostIds, getPostData} from '../../../lib/posts';
 
 const chance = new Chance();
 jest.mock('../../../lib/posts');
-jest.mock('../../../components/date', () => ({dateString}) => (
+jest.mock('../../../client/components/date', () => ({dateString}) => (
     <div>{`${dateString}`}</div>
 ));
 

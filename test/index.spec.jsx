@@ -4,9 +4,8 @@ import '@testing-library/jest-dom'
 
 import Home, {getStaticProps} from '../pages';
 import {getSortedPostsData} from '../lib/posts';
-import Date from '../client/components/date';
 
-jest.mock('../components/date', () => ({dateString}) => (
+jest.mock('../client/components/date', () => ({dateString}) => (
     <div>{`${dateString}`}</div>
 ));
 jest.mock('../lib/posts');
