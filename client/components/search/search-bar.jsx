@@ -7,12 +7,12 @@ const SearchBar = () => {
     return (
         <form className={styles.searchBar}>
             <label htmlFor={'header-search'}>
-                <span className={styles.visuallyHidden}>Search gifs on Giphy</span>
+                <span className={styles.visuallyHidden}>{'Search gifs on Giphy'}</span>
             </label>
             <input
                 data-testid={'search-input'}
                 value={search}
-                onInput={(event) => setSearch(event.target.value)}
+                onChange={(event) => setSearch(event.target.value)}
                 className={styles.searchInput}
                 type={"text"}
                 id={"header-search"}
