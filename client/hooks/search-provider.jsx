@@ -1,21 +1,20 @@
 import {useState, createContext, useContext} from 'react';
-import fetch from "cross-fetch";
+import fetch from 'cross-fetch';
 
 const SearchContext = createContext({});
 
 const useProvideSearch = () => {
     const [search, setSearch] = useState('');
-    const [data, setData] = useState(null);
+    const [data, setData] = useState(undefined);
     const [loading, setLoading] = useState(false);
 
     const fetchGifResults = async (searchTerm) => {
         setLoading(true);
         const response = await fetch(`api/search/${searchTerm}`);
 
-        const data = await response.json();
-        console.log('data', data);
+        const responseData = await response.json();
 
-        setData(data);
+        setData(responseData);
         setLoading(false);
     };
 
@@ -26,20 +25,18 @@ const useProvideSearch = () => {
         search,
         setData,
         setLoading,
-        setSearch
-    }
+        setSearch,
+    };
 };
 
 export const SearchProvider = (props) => {
     const search = useProvideSearch();
 
-    return(
+    return (
         <SearchContext.Provider value={search}>
             {props.children}
         </SearchContext.Provider>
-    )
+    );
 };
 
-export const useSearch = () => {
-    return useContext(SearchContext);
-};
+export const useSearch = () => useContext(SearchContext);

@@ -6,25 +6,30 @@ import handler from '../../../../pages/api/search/[search]';
 jest.mock('../../../../repositories/gif-repository');
 
 const chance = new Chance();
+
 describe('search handler', () => {
-    let req, res, status, json, expectedResult;
+    let req,
+        res,
+        status,
+        json,
+        expectedResult;
 
     beforeEach(() => {
         req = {
             query: {
-                search: chance.string()
-            }
+                search: chance.string(),
+            },
         };
 
         json = jest.fn();
         status = jest.fn().mockReturnValue({json});
 
         res = {
-            status
+            status,
         };
 
         expectedResult = {
-            [chance.word()]: chance.string()
+            [chance.word()]: chance.string(),
         };
 
         getGifsForSearchQuery.mockResolvedValue(expectedResult);

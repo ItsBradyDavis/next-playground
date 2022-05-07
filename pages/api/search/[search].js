@@ -2,7 +2,7 @@ import {getGifsForSearchQuery} from '../../../server/repositories/gif-repository
 
 const handler = async (req, res) => {
     const {
-        query: {search}
+        query: {search},
     } = req;
 
     const gifResults = await getGifsForSearchQuery(search);

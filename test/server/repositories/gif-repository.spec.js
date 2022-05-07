@@ -3,22 +3,25 @@ import fetch from 'cross-fetch';
 
 import {getGifsForSearchQuery} from '../../../server/repositories/gif-repository';
 
+const proc = require('process');
+
 jest.mock('cross-fetch');
 
 const chance = new Chance();
 
 describe('gif repository', () => {
-    let search, expectedResponse;
+    let search,
+        expectedResponse;
 
     describe('getGifsForSearchQuery', () => {
         let processEnv;
 
         beforeAll(() => {
-            processEnv = process.env;
+            processEnv = proc.env;
         });
 
         afterAll(() => {
-            process.env = processEnv;
+            proc.env = processEnv;
         });
 
         afterEach(() => {
@@ -26,25 +29,25 @@ describe('gif repository', () => {
         });
 
         beforeEach(() => {
-            process.env.GIPHY_API_KEY = chance.string();
+            proc.env.GIPHY_API_KEY = chance.string();
             search = chance.word();
 
             expectedResponse = {
                 data: {
-                    [chance.word()]: chance.string()
-                }
+                    [chance.word()]: chance.string(),
+                },
             };
 
             fetch.mockResolvedValue({
-                json: jest.fn().mockResolvedValue(expectedResponse)
+                json: jest.fn().mockResolvedValue(expectedResponse),
             });
         });
 
-        test('should fetch from giphy ', async () => {
+        test('should fetch from giphy', async () => {
             const result = await getGifsForSearchQuery(search);
 
             expect(fetch).toHaveBeenCalledTimes(1);
-            expect(fetch).toHaveBeenCalledWith(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${search}&limit=50=offset=0&lang=en`)
+            expect(fetch).toHaveBeenCalledWith(`https://api.giphy.com/v1/gifs/search?api_key=${proc.env.GIPHY_API_KEY}&q=${search}&limit=50=offset=0&lang=en`);
 
             expect(result).toStrictEqual(expectedResponse.data);
         });

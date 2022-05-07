@@ -5,7 +5,9 @@ module.exports = {
         'jest.config.js',
     ],
     rules: {
+        'import/group-exports': 0,
         'node/no-sync': 0,
-        // enable additional rules, override rule options, or disable rules
+        'node/no-unpublished-import': 0,
+        'react/display-name': 0,
     },
 };

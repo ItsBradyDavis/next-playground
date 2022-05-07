@@ -1,11 +1,13 @@
 import Chance from 'chance';
 import * as RHTL from '@testing-library/react-hooks';
+
 import {SearchProvider, useSearch} from '../../../client/hooks/search-provider';
 
 const chance = new Chance();
 
 describe('SearchProvider', () => {
-    let wrapper, result;
+    let wrapper,
+        result;
 
     beforeEach(() => {
         wrapper = ({children}) => <SearchProvider>{children}</SearchProvider>;
@@ -19,7 +21,7 @@ describe('SearchProvider', () => {
     });
 
     test('should set default search, data, loading', () => {
-        expect(result.current.search).toStrictEqual('');
+        expect(result.current.search).toBe('');
         expect(result.current.data).toBeNull();
         expect(result.current.loading).toBe(false);
     });
@@ -28,7 +30,7 @@ describe('SearchProvider', () => {
         const expectedSearch = chance.string();
 
         RHTL.act(() => {
-           result.current.setSearch(expectedSearch);
+            result.current.setSearch(expectedSearch);
         });
 
         expect(result.current.search).toBe(expectedSearch);
@@ -36,7 +38,7 @@ describe('SearchProvider', () => {
 
     test('should set data', () => {
         const expectedData = {
-            [chance.word()]: chance.string()
+            [chance.word()]: chance.string(),
         };
 
         RHTL.act(() => {
