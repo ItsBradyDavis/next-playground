@@ -1,5 +1,5 @@
 import {useState, createContext, useContext} from 'react';
-import fetch from 'cross-fetch';
+import fetch from 'node-fetch';
 
 const SearchContext = createContext({});
 
