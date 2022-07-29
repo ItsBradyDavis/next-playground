@@ -21,7 +21,7 @@ const Home = ({allPostsData}) => {
                 <title>{siteTitle}</title>
             </Head>
             <section data-testid="intro-section" className={utilStyles.headingMd}>
-                <p>Hello! My name is Brady Davis. I've been professionally developing software since 2014, and I am currently a full stack developing consultant at Source Allies. Feel free to contact me on <a href={'https://www.linkedin.com/in/brady-davis-14080589/'}>LinkedIn.</a> My areas of expertise include:</p>
+                <p>Hello! My name is Brady Davis. I've been professionally developing software since 2014, and I am currently a full stack developing consultant at Signature Consultants. Feel free to contact me on <a href={'https://www.linkedin.com/in/brady-davis-14080589/'}>LinkedIn.</a> My areas of expertise include:</p>
                 <ul>
                     <li>Frontend & Backend development using NodeJs stack, including Next, React, React Native, and GraphQl</li>
                     <li>Flash AS3 Web & Mobile application development</li>
